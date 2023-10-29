@@ -20,7 +20,7 @@ header {
 
     text-align: center;
     padding: 30px 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-style: italic;
 }
 
@@ -87,13 +87,16 @@ header p {
 
     margin: 0px;
     padding: 10;
-    border-radius: 20px;
+    border-radius: 5px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     transform: translateY(-50);
     transition: transform 0.5s ease;
     left: -200px;
     top: 0;
     width: 1000px;
+    background-color: #070707;
+    opacity: 0.7;
+   
 }
 
 #sobre1:hover {
@@ -109,6 +112,10 @@ header p {
     position: absolute;
     top: 23%;
     right: 0;
+    margin: 0px;
+    padding: 10;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Seção formação */
@@ -128,6 +135,8 @@ header p {
     padding: 10;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    background-color: #070707;
+    opacity: 0.7;
 
 }
 
@@ -148,6 +157,8 @@ header p {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    background-color: #070707;
+    opacity: 0.7;
 }
 
 .projeto img {
