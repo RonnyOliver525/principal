@@ -1,0 +1,246 @@
+/* Estilo geral da página */
+body {
+
+    background-image: url('fundosite12.jpg');
+   
+    /* Ajusta a imagem para cobrir todo o elemento body */
+    background-size: cover;
+    
+    /* Mantém a imagem fixa enquanto a página rola */
+    background-attachment: scroll;
+    background-position: center center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #e2dfc0;
+}
+
+/* Cabeçalho */
+header {
+
+    text-align: center;
+    padding: 30px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #ded9e6;
+}
+
+/* seção da navegação */
+
+#navegador {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(45, 32, 53, 0.678);
+    opacity: 0.9;
+}
+
+#navegador ul {
+
+    list-style: none;
+    padding: 0;
+    display: flex;
+}
+
+#navegador li {
+
+    margin: 0 20px;
+}
+
+#navegador a {
+
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+#navegador a:hover {
+
+    text-decoration: underline;
+    color: rgb(206, 192, 129);
+}
+
+/* Seção Sobre */
+#sobre {
+
+    padding: 80px;
+    height: 800;
+}
+
+
+/* estilo da div 'sobre mim' */
+#sobre p {
+    font-size: 1.2rem;
+    text-align: left;
+    width: 350;
+    top: 22%;
+    right: 0;
+}
+#sobre1 {
+
+    margin: 0px;
+    padding: 10;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    transform: translateY(-50);
+    transition: transform 0.5s ease;
+    left: -200px;
+    top: 0;
+    width: 1000px;
+}
+
+#sobre1:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s;
+}
+
+/* seção da foto */
+#foto1 {
+
+    float: right;
+    opacity: 0.8;
+    position: absolute;
+    top: 23%;
+    right: 0;
+}
+
+/* Seção formação */
+#formacao {
+
+    padding: 50px 0;
+    text-align: center;
+}
+
+#formacao p {
+    font-size: 1.2rem;
+}
+
+.formacao1 {
+
+    margin: 0px;
+    padding: 10;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+}
+
+.formacao1:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s;
+}
+
+/* Seção Projetos */
+#projetos {
+
+    padding: 50px 0;
+    text-align: center;
+}
+
+.projeto {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.projeto img {
+    max-width: 100%;
+}
+
+.projeto h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: #e4cfcf;
+}
+
+.projeto p {
+    font-size: 1rem;
+    color: #ce108e;
+}
+
+/* Seção Contato */
+#contato {
+
+    padding: 50px 0;
+    text-align: center;
+}
+
+#contato a {
+    color: #00aaff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+#contato a:hover {
+    color: #ff00aa;
+}
+
+/* Rodapé */
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 20px 0;
+    opacity: 0.7;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #68e62e;
+}
+
+/* Efeitos */
+
+.projeto:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s;
+}
+
+header,
+#sobre,
+#projetos,
+#contato,
+#formacao {
+    animation: fadeIn 2s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* alinhamento de resolução para smartphone */
+
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    section {
+        margin: 10px;
+
+
+    }
+
+
+}

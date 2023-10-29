@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homem ou mulher?</title>
+</head>
+<body>
+    <script>
+
+        //leitura do sexo digitado pelo usuário
+
+        var sexo=prompt('Digite o sexo (M/F): ');
+        var sexo=sexo.toUpperCase();
+
+        // verificar se é válido
+
+        if (sexo == 'M' || sexo == 'F'){
+            if(sexo =='M'){
+                //sexo masculino
+                alert('Sexo Masculino');
+
+            }
+            if(sexo =='F'){
+            //sexo feminino
+
+            alert('Sexo Feminino'); 
+            
+            }
+
+        }else
+            //sexo inválido
+            alert('Sexo inválido!');
+ 
+     
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
