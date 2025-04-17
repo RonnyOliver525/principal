@@ -1,0 +1,78 @@
+import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export default function DashboardEntregas() {
+  const [pedido, setPedido] = useState({
+    coleta: "",
+    entrega: "",
+    distancia: 0, // em km
+    tempo: 0, // em minutos
+    chance: 50,
+  });
+
+  const [historico, setHistorico] = useState([]);
+  const [listaNegra] = useState(["Bairro Problemático", "Zona de Risco"]);
+
+  const avaliarPedido = () => {
+    const { coleta, entrega, distancia, tempo, chance } = pedido;
+    const valorEstimado = distancia * 1.5;
+    let decisao = "Aceitar";
+    let motivo = "Critérios atendidos.";
+
+    if (listaNegra.includes(coleta) || listaNegra.includes(entrega)) {
+      decisao = "Recusar";
+      motivo = "Região em lista negra.";
+    } else if (valorEstimado / tempo < 1) {
+      decisao = "Recusar";
+      motivo = "Baixo ganho estimado por minuto.";
+    } else if (chance < 30) {
+      decisao = "Recusar";
+      motivo = "Baixa chance de novos pedidos.";
+    }
+
+    setHistorico([
+      ...historico,
+      { ...pedido, valorEstimado, decisao, motivo }
+    ]);
+  };
+
+  const atualizarCampo = (campo, valor) => {
+    setPedido({ ...pedido, [campo]: valor });
+  };
+
+  return (
+    <div className="p-4 grid gap-4 grid-cols-1 md:grid-cols-2">
+      <Card>
+        <CardContent className="space-y-4">
+          <h2 className="text-xl font-bold">Novo Pedido</h2>
+          <Input placeholder="Local de Coleta" onChange={(e) => atualizarCampo("coleta", e.target.value)} />
+          <Input placeholder="Local de Entrega" onChange={(e) => atualizarCampo("entrega", e.target.value)} />
+          <Input type="number" placeholder="Distância (km)" onChange={(e) => atualizarCampo("distancia", parseFloat(e.target.value))} />
+          <Input type="number" placeholder="Tempo Estimado (min)" onChange={(e) => atualizarCampo("tempo", parseFloat(e.target.value))} />
+          <Input type="number" placeholder="Chance de Novos Pedidos (%)" onChange={(e) => atualizarCampo("chance", parseFloat(e.target.value))} />
+          <Button onClick={avaliarPedido}>Avaliar Pedido</Button>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent className="space-y-4">
+          <h2 className="text-xl font-bold">Histórico de Avaliações</h2>
+          {historico.map((p, i) => (
+            <div key={i} className="border p-2 rounded-xl">
+              <p><strong>Coleta:</strong> {p.coleta}</p>
+              <p><strong>Entrega:</strong> {p.entrega}</p>
+              <p><strong>Distância:</strong> {p.distancia} km</p>
+              <p><strong>Tempo:</strong> {p.tempo} min</p>
+              <p><strong>Chance:</strong> {p.chance}%</p>
+              <p><strong>Valor Estimado:</strong> R$ {p.valorEstimado.toFixed(2)}</p>
+              <p><strong>Decisão:</strong> {p.decisao}</p>
+              <p className="text-xs text-gray-500">{p.motivo}</p>
+            </div>
+          ))}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
